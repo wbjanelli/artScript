@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import NavBar from './NavBar';
 
@@ -7,7 +6,6 @@ function App() {
     <>
       <main className="main">
         <NavBar websiteTitle={"artScript"} />
-
         
       </main>
     </>
