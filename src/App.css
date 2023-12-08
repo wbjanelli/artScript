@@ -16,12 +16,12 @@
   color: white;
   font-size: calc(10px + 2vmin); */
   /* padding: 0 2vw; */
-  padding: 5px 20px;
+  padding:6px 20px;
   font-family: "Quicksand", sans-serif;
 }
 
 .main {
-  background: url("/public/genhiscool.jpeg") no-repeat center center fixed;
+  background: url("/public/genhis4k.png") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
