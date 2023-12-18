@@ -25,7 +25,6 @@ const App = () => {
     { url: "http://localhost:3000/nativetripeyes.jpg", title: "Shamon" },
     { url: "http://localhost:3000/tiger8x.png", title: "Tiger" },
     { url: "http://localhost:3000/trippynatove.jpg", title: "Trip" },
-    // { url: "http://localhost:3000/image-5.jpg", title: "italy" },
   ]
 
   const containerStyles = {
@@ -38,7 +37,6 @@ const App = () => {
     <>
       <main className="main">
         <NavBar websiteTitle={"artScript"} />
-        {/* <h1>Hello monsterlessons</h1> */}
         <div style={containerStyles}>
           <ImageSlider slides={slides} />
         </div>
