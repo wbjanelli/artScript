@@ -27,4 +27,9 @@
   -o-background-size: cover;
   background-size: cover;
   min-height: 100vh;
+  
+}
+
+.slider {
+  padding: 50px 30px 30px; /* Adjust the top padding as needed */
 }

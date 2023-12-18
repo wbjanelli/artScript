@@ -5,14 +5,17 @@ import './App.css';
 
 const App = () => {
   const slides = [
-    { url: `${process.env.PUBLIC_URL}/nativetripeyes.jpeg`, alt: "Chief", title: "Chief" },
+    { url: `${process.env.PUBLIC_URL}/nativetripeyes.jpeg`, title: "Chief" },
     { url: `${process.env.PUBLIC_URL}/tiger8x.png`, title: "Tiger" },
     { url: `${process.env.PUBLIC_URL}/trippynatove.jpeg`, title: "Trip" },
+    { url: `${process.env.PUBLIC_URL}/chillenstatue.jpeg`, title: "Chillin" },
+    { url: `${process.env.PUBLIC_URL}/Oldchineseman.jpeg`, title: "OldMan" },
+    { url: `${process.env.PUBLIC_URL}/rhinobest.jpeg`, title: "rhino" },
   ]
 
   const containerStyles = {
-    width: "500px",
-    height: "280px",
+    width: "700px",
+    height: "400px",
     margin: "0 auto",
   };
 
@@ -20,7 +23,7 @@ const App = () => {
     <>
       <main className="main">
         <NavBar websiteTitle={"artScript"} />
-        <div style={containerStyles}>
+        <div className="slider" style={containerStyles}>
           <ImageSlider slides={slides} />
         </div>
       </main>
@@ -29,19 +32,3 @@ const App = () => {
 };
 
 export default App;
-
-// import './App.css';
-// import NavBar from './NavBar';
-
-// function App() {
-//   return (
-//     <>
-//       <main className="main">
-//         <NavBar websiteTitle={"artScript"} />
-        
-//       </main>
-//     </>
-//   );
-// }
-
-// export default App;
