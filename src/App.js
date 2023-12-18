@@ -28,7 +28,7 @@ const App = () => {
   return (
     <>
       <main className="main">
-        <NavBar websiteTitle={"artScript"} />
+        <NavBar websiteTitle={"art[Script]"} />
         <div className="slider" style={containerStyles}>
           <ImageSlider slides={slides} />
         </div>
