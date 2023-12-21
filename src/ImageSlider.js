@@ -127,6 +127,29 @@ const ImageSlider = ({ slides }) => {
           </div>
         ))}
       </div>
+      <div style={{ marginTop: '20px', textAlign: 'center' }}>
+        <a
+          href="https://artscript.printify.me/products"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            backgroundColor: '#99aaa4',
+            color: 'white',
+            padding: '14px 20px',
+            margin: '8px 0',
+            border: 'solid',
+            borderWidth: '3px',
+            borderRadius: '5px',
+            cursor: 'pointer',
+            textDecoration: 'none',
+            fontSize: '30px',
+            width: '100%',
+            font: 'Quicksand'
+          }}
+        >
+          Online Store
+        </a>
+      </div>
     </div>
   );
 };
