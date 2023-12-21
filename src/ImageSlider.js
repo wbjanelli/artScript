@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 const slideStyles = {
   width: "100%",
@@ -6,8 +6,8 @@ const slideStyles = {
   borderRadius: "10px",
   backgroundSize: "cover",
   backgroundPosition: "center",
-  border: "5px solid #fff", // Add a white border
-  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1), 0 16px 32px rgba(0, 0, 0, 0.1)", // Add more box shadows
+  border: "5px solid #fff",
+  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1), 0 16px 32px rgba(0, 0, 0, 0.1)",
 };
 
 const rightArrowStyles = {
@@ -45,29 +45,57 @@ const dotsContainerStyles = {
 const dotStyle = {
   margin: "0 3px",
   cursor: "pointer",
-  fontSize: "20px",
+  fontSize: "13px",
 };
 
 const ImageSlider = ({ slides }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  
-  const goToPrevious = () => {
+
+  const goToPrevious = useCallback(() => {
     const isFirstSlide = currentIndex === 0;
     const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
     setCurrentIndex(newIndex);
-  };
-  
-  const goToNext = () => {
+  }, [currentIndex, slides.length]);
+
+  const goToNext = useCallback(() => {
     const isLastSlide = currentIndex === slides.length - 1;
     const newIndex = isLastSlide ? 0 : currentIndex + 1;
     setCurrentIndex(newIndex);
-  };
+  }, [currentIndex, slides.length]);
 
-  const goToSlide = (slideIndex) => {
-    setCurrentIndex(slideIndex);
-  };
+  const goToSlide = useCallback(
+    (slideIndex) => {
+      setCurrentIndex(slideIndex);
+    },
+    []
+  );
 
-  const slideStylesWidthBackground = {
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      switch (event.key) {
+        case "ArrowLeft":
+          goToPrevious();
+          break;
+        case "ArrowRight":
+          goToNext();
+          break;
+        default:
+          break;
+      }
+    };
+
+    // Add event listener for keyboard arrow keys
+    document.addEventListener("keydown", handleKeyDown);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+
+    // Add dependencies to the dependency array
+  }, [currentIndex, goToNext, goToPrevious]);
+
+  const slideStylesWithBackground = {
     ...slideStyles,
     backgroundImage: `url(${slides[currentIndex].url})`,
   };
@@ -82,7 +110,7 @@ const ImageSlider = ({ slides }) => {
           ❱
         </div>
       </div>
-      <div style={slideStylesWidthBackground}></div>
+      <div style={slideStylesWithBackground}></div>
       <div style={dotsContainerStyles}>
         {slides.map((slide, slideIndex) => (
           <div

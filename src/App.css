@@ -21,14 +21,15 @@
 }
 
 .main {
-  background: url("/public/genhis4k.png") no-repeat center center fixed;
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.25)), url("/public/genhis4k.png") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  min-height: 100vh;
-  
 }
+
 
 .slider {
   padding: 50px 30px 30px; /* Adjust the top padding as needed */
