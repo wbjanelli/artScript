@@ -45,7 +45,7 @@ const dotsContainerStyles = {
 const dotStyle = {
   margin: "0 3px",
   cursor: "pointer",
-  fontSize: "13px",
+  fontSize: "20px",
 };
 
 const ImageSlider = ({ slides }) => {
@@ -100,6 +100,11 @@ const ImageSlider = ({ slides }) => {
     backgroundImage: `url(${slides[currentIndex].url})`,
   };
 
+  // Display only 10 dots
+  const totalDots = 10;
+  const startDot = Math.max(0, currentIndex - Math.floor(totalDots / 2));
+  const visibleDots = slides.slice(startDot, startDot + totalDots);
+
   return (
     <div style={sliderStyles}>
       <div>
@@ -112,11 +117,11 @@ const ImageSlider = ({ slides }) => {
       </div>
       <div style={slideStylesWithBackground}></div>
       <div style={dotsContainerStyles}>
-        {slides.map((slide, slideIndex) => (
+        {visibleDots.map((_, dotIndex) => (
           <div
             style={dotStyle}
-            key={slideIndex}
-            onClick={() => goToSlide(slideIndex)}
+            key={dotIndex}
+            onClick={() => goToSlide(startDot + dotIndex)}
           >
             ●
           </div>
